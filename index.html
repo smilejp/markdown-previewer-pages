@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Previewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.11/dist/purify.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+  <script type="module" crossorigin src="/markdown-previewer-pages/assets/index-D-PjPk82.js"></script>
+  <link rel="stylesheet" crossorigin href="/markdown-previewer-pages/assets/index-CQhMx_Ni.css">
+</head>
+<body>
+    <div id="app-container">
+        <header id="toolbar">
+            <h1>Markdown Previewer</h1>
+            <div id="file-info" style="display:none;">
+                Editing: <span id="current-file-name"></span>
+            </div>
+            <div class="controls">
+                <button id="new-doc-button">New Document</button>
+                <button id="save-button">Save</button>
+                <label for="style-selector">Theme:</label>
+                <select id="style-selector" aria-label="Select preview theme">
+                    <option value="default">Default</option>
+                    <option value="github-light">GitHub Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+                <button id="save-pdf">Save as PDF</button>
+                <button id="help-button" aria-label="Markdown Syntax Help">?</button>
+            </div>
+        </header>
+        <main id="main-content">
+            <aside id="file-sidebar">
+                <h2>Local Files</h2>
+                <ul id="file-list"></ul>
+            </aside>
+            <button id="sidebar-toggle" aria-label="Toggle file list">‹</button>
+            <section id="editor-section" aria-labelledby="editor-heading">
+                <h2 id="editor-heading" class="sr-only">Markdown Editor</h2>
+                <textarea id="editor" aria-label="Markdown input"></textarea>
+            </section>
+            <div id="resizer" role="separator" aria-orientation="vertical" aria-label="Resize editor and preview panes"></div>
+            <section id="preview-section" aria-labelledby="preview-heading">
+                 <h2 id="preview-heading" class="sr-only">HTML Preview</h2>
+                <div id="preview" class="preview-style default" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="help-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="modal-title">Markdown Syntax Guide</h2>
+                <button id="close-modal-button" class="close-button" aria-label="Close help dialog">&times;</button>
+            </header>
+            <div class="modal-body">
+                <p><code># H1</code> &nbsp; <code>## H2</code> &nbsp; <code>### H3</code></p>
+                <p><code>**bold text**</code> &nbsp; <code>*italicized text*</code></p>
+                <p><code>&gt; blockquote</code></p>
+                <p><code>- First item</code><br><code>- Second item</code></p>
+                <p><code>1. First item</code><br><code>2. Second item</code></p>
+                <p><code>`code`</code></p>
+                <p><code>---</code> (horizontal rule)</p>
+                <p><code>[title](https://www.example.com)</code></p>
+                <p><code>![alt text](image.jpg)</code></p>
+                <pre><code>```mermaid
+graph TD;
+    A-->B;
+```</code></pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
